@@ -17,6 +17,7 @@ class Vehicle extends Model
         'registrationNumber', 'brand','carModel','colour'
     ];
 
+
     public function service()
     {
         return $this->hasMany(Service::class);
