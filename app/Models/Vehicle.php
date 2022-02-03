@@ -18,6 +18,13 @@ class Vehicle extends Model
     ];
 
 
+    public function customers()
+    {
+        return $this->belongsToMany(Customer::class, 'services', 'vehicle_id', 'customer_id')
+            ->withPivot( 'onhold')
+            ->withTimestamps();
+    }
+
     public function service()
     {
         return $this->hasMany(Service::class);

@@ -11,21 +11,23 @@ class VehicleController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function index()
     {
-        //
+        $vehicles = Vehicle::latest()->paginate(5);
+        return view('vehicle.index',compact('vehicles'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function create()
     {
-        //
+        return view('vehicle.create');
     }
 
     /**

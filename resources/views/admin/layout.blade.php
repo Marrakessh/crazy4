@@ -146,6 +146,13 @@ Customers
                   </a>
               </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('vehicle.index') }}">
+                    <span data-feather="users"></span>
+Vehicles
+                </a>
+            </li>
+
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('booking.index') }}">
                       <span data-feather="tag"></span>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VenueController;
 use App\Http\Controllers\VenueImageController;
@@ -70,5 +71,6 @@ Route::view('/artist-search', 'artist.artist-search')->middleware(['auth']);
 Route::view('/customer-lastname-search', 'customer.customer-lastname-search')->middleware(['auth']);
 
 Route::resource('customer',CustomerController::class)->middleware(['auth']);
+Route::resource('vehicle',VehicleController::class)->middleware(['auth']);
 
 

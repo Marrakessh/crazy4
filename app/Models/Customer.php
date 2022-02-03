@@ -19,8 +19,15 @@ class Customer extends Model
         'username','title','firstname', 'lastname', 'address1', 'address2', 'towncity', 'county', 'postcode', 'phone', 'email'
     ];
 
-    public function booking()
+    public function vehicles()
     {
-        return $this->hasMany(Booking::class);
+        return $this->belongsToMany(Vehicle::class, 'services', 'customer_id', 'vehicle_id')
+            ->withPivot( 'onhold')
+            ->withTimestamps();
     }
+
+//    public function booking()
+//    {
+//        return $this->hasMany(Booking::class);
+//    }
 }

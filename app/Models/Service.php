@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Service extends Model
+class Service extends Pivot
 {
     use HasFactory;
     /**
@@ -17,8 +18,13 @@ class Service extends Model
         'customer_id', 'vehicle_id','onhold'
     ];
 
-    public function vehicle()
-    {
-        return $this->belongsTo('App\Models\Vehicle','vehicle_id');
-    }
+    //Table Name
+    protected $table = 'services';
+
+    public $incrementing = true;
+
+//    public function vehicle()
+//    {
+//        return $this->belongsTo('App\Models\Vehicle','vehicle_id');
+//    }
 }
