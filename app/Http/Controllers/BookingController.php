@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Customer;
 use App\Models\Event;
+use App\Models\Service;
 use Illuminate\Http\Request;
 //use App\Http\Requests\StoreBookingRequest;
 //use App\Http\Requests\UpdateBookingRequest;
@@ -56,10 +57,10 @@ class BookingController extends Controller
 //ddd($booking);
 
         //Insert 'tickets_full/reduced_price' into tickets pivot table
-        $tickets_full_price = $request->get('tickets_full_price');
-        $tickets_reduced_price = $request->get('tickets_reduced_price');
-        $booking->events()->attach($booking->event->id,
-            ['tickets_full_price' =>$tickets_full_price, 'tickets_reduced_price' =>$tickets_reduced_price]);
+//        $tickets_full_price = $request->get('tickets_full_price');
+//        $tickets_reduced_price = $request->get('tickets_reduced_price');
+//        $booking->events()->attach($booking->event->id,
+//            ['tickets_full_price' =>$tickets_full_price, 'tickets_reduced_price' =>$tickets_reduced_price]);
 
 //ddd($booking);
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VenueController;
@@ -72,5 +73,6 @@ Route::view('/customer-lastname-search', 'customer.customer-lastname-search')->m
 
 Route::resource('customer',CustomerController::class)->middleware(['auth']);
 Route::resource('vehicle',VehicleController::class)->middleware(['auth']);
+Route::resource('service',ServiceController::class)->middleware(['auth']);
 
 
