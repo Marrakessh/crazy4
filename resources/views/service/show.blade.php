@@ -4,7 +4,7 @@
     <div class="card mt-5">
         <div class="card-header">
             <div class="float-left">
-                <span class="inline-flex"><h2>{{ $service->vehicle->registrationNumber }}</h2><h6>Service Details</h6></span>
+                <span class="inline-flex"><h2>{{ $service->vehicle->brand }} {{ $service->vehicle->carModel }} {{ $service->vehicle->registrationNumber }}</h2><h6>Service Details</h6></span>
             </div>
             <div class="float-right">
                 <a class="btn btn-primary" href="{{ url()->previous() }}"> Back</a>
@@ -26,6 +26,8 @@
                             <div class="form-group">
                                 <strong>For Customer:</strong>
                                 {{ $service->customer->title }} {{ $service->customer->firstname }} {{ $service->customer->lastname }}
+                                <strong>Postcode:</strong>
+                                {{ $service->customer->postcode }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -60,7 +62,7 @@
 {{--                        </div>--}}
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Date:</strong>
+                                <strong>Service booked:</strong>
                                 {{ Carbon\Carbon::parse($service->created_at)->format('l jS \of F Y') }} <strong>  Time:</strong> {{ Carbon\Carbon::parse($service->created_at)->format('g:i a') }}
                             </div>
                         </div>
