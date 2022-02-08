@@ -60,11 +60,13 @@ class ServiceController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Service  $service
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function show(Service $service)
     {
-        //
+        return view('service.show',compact('service'))
+            ->with('vehicles', Vehicle::all())
+            ->with('customers', Customer::all());
     }
 
     /**
@@ -94,10 +96,13 @@ class ServiceController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Service  $service
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+
+        return redirect()->route('service.index')
+            ->with('success','Service deleted successfully');
     }
 }

@@ -3,7 +3,7 @@
 @section('content')
     <div class="card mt-5">
         <div class="card-header">
-            <h2>Add Booking</h2>
+            <h2>Add Service</h2>
         </div>
         <div class="card-body">
             <div class="row">

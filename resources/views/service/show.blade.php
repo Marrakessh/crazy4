@@ -4,7 +4,7 @@
     <div class="card mt-5">
         <div class="card-header">
             <div class="float-left">
-                <span class="inline-flex"><h2>{{ $booking->event->title }}</h2><h6>Booking Details</h6></span>
+                <span class="inline-flex"><h2>{{ $service->vehicle->registrationNumber }}</h2><h6>Service Details</h6></span>
             </div>
             <div class="float-right">
                 <a class="btn btn-primary" href="{{ url()->previous() }}"> Back</a>
@@ -24,72 +24,68 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Event:</strong>
-                                {{ $booking->event->title }}
+                                <strong>For Customer:</strong>
+                                {{ $service->customer->title }} {{ $service->customer->firstname }} {{ $service->customer->lastname }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Description:</strong>
-                                {{ $booking->event->description }}
+                                <strong>Brand:</strong>
+                                {{ $service->vehicle->brand }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Venue:</strong>
-                                {{ $booking->event->venue->name }}
+                                <strong>Model:</strong>
+                                {{ $service->vehicle->carModel }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Artists: </strong>
-                                <ul>
-                                @foreach($booking->event->artists as $artist)
-
-                                    <li><a href="{{ route('artist.show',$artist->id) }}">{{ $artist->name }}</a></li>
-
-                                @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Date:</strong>
-                                {{ Carbon\Carbon::parse($booking->event->datetime)->format('l jS \of F Y') }} <strong>  Time:</strong> {{ Carbon\Carbon::parse($booking->event->datetime)->format('g:i a') }}
+                                <strong>Colour:</strong>
+                                {{ $service->vehicle->colour }}
                             </div>
                         </div>
 {{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
 {{--                            <div class="form-group">--}}
-{{--                                <strong>Time:</strong>--}}
-{{--                                {{ Carbon\Carbon::parse($booking->event->datetime)->format('g:i a') }}--}}
+{{--                                <strong>Artists: </strong>--}}
+{{--                                <ul>--}}
+{{--                                @foreach($service->vehicle->artists as $artist)--}}
+
+{{--                                    <li><a href="{{ route('artist.show',$artist->id) }}">{{ $artist->name }}</a></li>--}}
+
+{{--                                @endforeach--}}
+{{--                                </ul>--}}
 {{--                            </div>--}}
 {{--                        </div>--}}
-
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>For Customer:</strong>
-                                {{ $booking->customer->title }} {{ $booking->customer->firstname }} {{ $booking->customer->lastname }}
+                                <strong>Date:</strong>
+                                {{ Carbon\Carbon::parse($service->created_at)->format('l jS \of F Y') }} <strong>  Time:</strong> {{ Carbon\Carbon::parse($service->created_at)->format('g:i a') }}
                             </div>
                         </div>
 
-                        <div class="col-xs-4 col-sm-4 col-md-4">
-                            <div class="form-group">
-                                <strong>Tickets Full Price: </strong>
-                                {{ $booking->events()->where('booking_id', $booking->id)->first()->pivot->tickets_full_price }} @ £{{ $booking->event->price }}
-                            </div>
-                        </div>
-                        <div class="col-xs-4 col-sm-4 col-md-4">
-                            <div class="form-group">
-                                <strong>Tickets Discount Price: </strong>
-                                {{ $booking->events()->where('booking_id', $booking->id)->first()->pivot->tickets_reduced_price }} @ £{{ $booking->event->reduced_price }}
-                            </div>
-                        </div>
-                        <div class="col-xs-4 col-sm-4 col-md-4">
-                            <div class="form-group">
-                                <strong>Total Price: </strong>
-                                £{{ number_format($booking->getTotalCost($booking),2) }}
-                            </div>
-                        </div>
+
+
+
+{{--                        <div class="col-xs-4 col-sm-4 col-md-4">--}}
+{{--                            <div class="form-group">--}}
+{{--                                <strong>Tickets Full Price: </strong>--}}
+{{--                                {{ $service->vehicles()->where('service_id', $service->id)->first()->pivot->tickets_full_price }} @ £{{ $service->vehicle->price }}--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xs-4 col-sm-4 col-md-4">--}}
+{{--                            <div class="form-group">--}}
+{{--                                <strong>Tickets Discount Price: </strong>--}}
+{{--                                {{ $service->vehicles()->where('service_id', $service->id)->first()->pivot->tickets_reduced_price }} @ £{{ $service->vehicle->reduced_price }}--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xs-4 col-sm-4 col-md-4">--}}
+{{--                            <div class="form-group">--}}
+{{--                                <strong>Total Price: </strong>--}}
+{{--                                £{{ number_format($service->getTotalCost($service),2) }}--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
