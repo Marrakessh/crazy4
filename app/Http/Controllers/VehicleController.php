@@ -34,11 +34,23 @@ class VehicleController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreVehicleRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function store(StoreVehicleRequest $request)
     {
-        //
+        $request->validate([
+
+            'registrationNumber'=> 'required',
+            'brand'=> 'required',
+            'carModel'=> 'required',
+            'colour'=> 'required',
+
+        ]);
+
+        Vehicle::create($request->all());
+
+        return redirect()->route('vehicle.index')
+            ->with('success','Vehicle created successfully.');
     }
 
     /**
@@ -79,10 +91,13 @@ class VehicleController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Vehicle  $vehicle
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function destroy(Vehicle $vehicle)
     {
-        //
+        $vehicle->delete();
+
+        return redirect()->route('vehicle.index')
+            ->with('success','Vehicle deleted successfully');
     }
 }

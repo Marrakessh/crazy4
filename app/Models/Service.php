@@ -23,8 +23,13 @@ class Service extends Pivot
 
     public $incrementing = true;
 
-//    public function vehicle()
-//    {
-//        return $this->belongsTo('App\Models\Vehicle','vehicle_id');
-//    }
+    public function vehicle()
+    {
+        return $this->belongsTo('App\Models\Vehicle','vehicle_id');
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo('App\Models\Customer', 'customer_id');
+    }
 }
