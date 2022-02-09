@@ -68,11 +68,11 @@ class VehicleController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Vehicle  $vehicle
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function edit(Vehicle $vehicle)
     {
-        //
+        return view('vehicle.edit',compact('vehicle'));
     }
 
     /**
@@ -80,11 +80,21 @@ class VehicleController extends Controller
      *
      * @param  \App\Http\Requests\UpdateVehicleRequest  $request
      * @param  \App\Models\Vehicle  $vehicle
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function update(UpdateVehicleRequest $request, Vehicle $vehicle)
     {
-        //
+        $request->validate([
+            'registrationNumber'=> 'required',
+            'brand'=> 'required',
+            'carModel'=> 'required',
+            'colour'=> 'required'
+        ]);
+
+        $vehicle->update($request->all());
+
+        return redirect()->route('vehicle.index')
+            ->with('success','Vehicle updated successfully');
     }
 
     /**

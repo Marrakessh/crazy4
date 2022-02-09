@@ -3,13 +3,13 @@
 @section('content')
     <div class="card mt-5">
         <div class="card-header">
-            <h2>{{ $venue->name }} -Update Details</h2>
+            <h2>Edit Vehicle</h2>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-12 mt-1 mr-1">
                     <div class="float-right">
-                        <a class="btn btn-primary" href="{{ route('venue.index') }}"> Back</a>
+                        <a class="btn btn-primary" href="{{ route('vehicle.index') }}"> Back</a>
                     </div>
                 </div>
             </div>
@@ -33,85 +33,35 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('venue.update',$venue->id) }}" method="POST">
+
+                    <form action="{{ route('vehicle.update', $vehicle->id) }}" method="POST">
                         @csrf
                         @method('PUT')
-
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Venue Name:</strong>
-                                    <input type="text" name="name" value="{{ $venue->name }}" class="form-control" placeholder="Venue Name">
+                                    <strong>Registration Number:</strong>
+                                    <input type="text" name="registrationNumber" value="{{ $vehicle->registrationNumber }}"class="form-control" placeholder="Registration Number">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Description:</strong>
-                                    <textarea class="form-control" style="height:70px" name="description" placeholder="Description">{{ $venue->description }}</textarea>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Address Line 1:</strong>
-                                    <input type="text" name="address1" value="{{ $venue->address1 }}" class="form-control" placeholder="Address Line 1">
+                                    <strong>Brand:</strong>
+                                    <input type="text" class="form-control" value="{{ $vehicle->brand }}" name="brand" placeholder="Brand">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Address Line 2:</strong>
-                                    <input type="text" name="address2" value="{{ $venue->address2 }}" class="form-control" placeholder="Address Line 2">
+                                    <strong>Model:</strong>
+                                    <input type="text" name="carModel" value="{{ $vehicle->carModel }}" class="form-control" placeholder="Model">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>City / Town:</strong>
-                                    <input type="text" name="city" value="{{ $venue->city }}" class="form-control" placeholder="City / Town">
+                                    <strong>Colour:</strong>
+                                    <input type="text" name="colour" value="{{ $vehicle->colour }}" class="form-control" placeholder="Colour">
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>County:</strong>
-                                    <input type="text" name="county" value="{{ $venue->county }}" class="form-control" placeholder="County">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Postcode:</strong>
-                                    <input type="text" name="postcode" value="{{ $venue->postcode }}" class="form-control" placeholder="Postcode">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Venue Phone:</strong>
-                                    <input type="text" name="venue_phone" value="{{ $venue->venue_phone }}" class="form-control" placeholder="Venue Phone">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Email:</strong>
-                                    <input type="text" name="email" value="{{ $venue->email }}" class="form-control" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Website:</strong>
-                                    <input type="text" name="website" value="{{ $venue->website }}" class="form-control" placeholder="Website">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Contact Name:</strong>
-                                    <input type="text" name="contact_name" value="{{ $venue->contact_name }}" class="form-control" placeholder="Contact Name">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Venue Capacity:</strong>
-                                    <input type="text" name="capacity" value="{{ $venue->capacity }}" class="form-control" placeholder="Venue Capacity">
-                                </div>
-                            </div>
-
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                 <button type="submit" class="btn btn-success">Update</button>
                             </div>
