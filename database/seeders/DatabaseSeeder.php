@@ -23,8 +23,8 @@ class DatabaseSeeder extends Seeder
         \App\Models\ArtistGenre::factory(5)->create();
 
         \App\Models\Customer::factory(50)->create();
-        \App\Models\Vehicle::factory(50)->create();
-        \App\Models\Service::factory(50)->create();
+        //\App\Models\Vehicle::factory(50)->create();
+        //\App\Models\Service::factory(50)->create();
 
     }
 }

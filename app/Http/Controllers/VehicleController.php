@@ -57,11 +57,11 @@ class VehicleController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Vehicle  $vehicle
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function show(Vehicle $vehicle)
     {
-        //
+        return view('vehicle.show',compact('vehicle'));
     }
 
     /**
