@@ -18,14 +18,16 @@ class CreateArtistsTable extends Migration
             $table->string('name');
             $table->text('bio');
             $table->string('address1');
-            $table->string('address2')->nullable();;
+            $table->string('address2')->nullable();
             $table->string('city');
             $table->string('county');
             $table->string('postcode');
             $table->string('phone');
             $table->string('email')->unique()->nullable();
-            $table->string('website')->nullable();;
+            $table->string('website')->nullable();
             $table->string('contact_name');
+            $table->string('youtube')->nullable();
+            $table->string('soundcloud')->nullable();
             $table->timestamps();
         });
     }

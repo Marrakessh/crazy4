@@ -48,6 +48,57 @@
                                 <strong>Artist:</strong>
                                 {{ $artist->name }}
                             </div>
+
+                            <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+                            <div id="player"></div>
+
+                            <script>
+                                // 2. This code loads the IFrame Player API code asynchronously.
+                                var tag = document.createElement('script');
+
+                                tag.src = "https://www.youtube.com/iframe_api";
+                                var firstScriptTag = document.getElementsByTagName('script')[0];
+                                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                                // 3. This function creates an <iframe> (and YouTube player)
+                                //    after the API code downloads.
+                                var player;
+                                function onYouTubeIframeAPIReady() {
+                                    player = new YT.Player('player', {
+                                        height: '390',
+                                        width: '450',
+                                       /* videoId: 'RIYwVldbdXU',*/
+                                        videoId:'{{ $artist->youtube }}',
+                                        playerVars: {
+                                            'playsinline': 1
+                                        },
+                                        events: {
+                                            'onReady': onPlayerReady,
+                                            'onStateChange': onPlayerStateChange
+                                        }
+                                    });
+                                }
+
+                                // 4. The API will call this function when the video player is ready.
+                                function onPlayerReady(event) {
+                                    event.target.playVideo();
+                                }
+
+                                // 5. The API calls this function when the player's state changes.
+                                //    The function indicates that when playing a video (state=1),
+                                //    the player should play for six seconds and then stop.
+                                var done = false;
+                                function onPlayerStateChange(event) {
+                                    if (event.data == YT.PlayerState.PLAYING && !done) {
+                                        setTimeout(stopVideo, 6000);
+                                        done = true;
+                                    }
+                                }
+                                function stopVideo() {
+                                    player.stopVideo();
+                                }
+                            </script>
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1244280925&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/beltersonly-21" title="Belters Only" target="_blank" style="color: #cccccc; text-decoration: none;">Belters Only</a> · <a href="https://soundcloud.com/beltersonly-21/dont-stop-just-yet-1" title="Don&#x27;t Stop Just Yet" target="_blank" style="color: #cccccc; text-decoration: none;">Don&#x27;t Stop Just Yet</a></div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">

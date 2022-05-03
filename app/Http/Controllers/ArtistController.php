@@ -51,7 +51,9 @@ class ArtistController extends Controller
             'postcode' => 'required',
             'phone' => 'required',
             'email',
-            'contact_name' => 'required'
+            'contact_name' => 'required',
+            'youtube',
+            'soundcloud'
         ]);
 
         //Create artist from blade form
@@ -111,7 +113,9 @@ class ArtistController extends Controller
             'postcode' => 'required',
             'phone' => 'required',
             'email',
-            'contact_name' => 'required'
+            'contact_name' => 'required',
+            'youtube',
+            'soundcloud'
         ]);
 
         $artist->update($request->all());

@@ -15,7 +15,7 @@ class Artist extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'bio', 'address1', 'address2', 'city', 'county', 'postcode', 'phone', 'email', 'website', 'contact_name'
+        'name', 'bio', 'address1', 'address2', 'city', 'county', 'postcode', 'phone', 'email', 'website', 'contact_name','youtube','soundcloud'
     ];
 
 

@@ -109,6 +109,18 @@
                                 {{ $artist->contact_name }}
                             </div>
                         </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Youtube:</strong>
+                                <a href="https://{{ $artist->youtube }}">{{ $artist->youtube }}</a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Soundcloud:</strong>
+                                <a href="https://{{ $artist->soundcloud }}">{{ $artist->soundcloud }}</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

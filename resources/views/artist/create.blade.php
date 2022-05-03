@@ -130,6 +130,18 @@
                                     <input type="text" name="contact_name" class="form-control" placeholder="Contact Name">
                                 </div>
                             </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Youtube:</strong>
+                                    <input type="text" name="youtube" class="form-control" placeholder="youtube">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Soundcloud:</strong>
+                                    <input type="text" name="soundcloud" class="form-control" placeholder="soundcloud">
+                                </div>
+                            </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>
