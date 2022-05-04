@@ -16,7 +16,7 @@
         <div class="card-header">
             <div class="float-left">
                 <h2 class ="card-title display-4">{{ $artist->name }}</h2>
-                <h6 class="card-subtitle mb-2 text-muted">Artist Details</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Artist Detailsxxx</h6>
             </div>
 
             <div class="float-right pt-3 mt-1 mr-1">
